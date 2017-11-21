@@ -16,6 +16,21 @@
     
   </head>
   <body class="parallax-demo">
+<div id='progress'>
+<br><br>
+<div class="row">
+<div class="col m4 s12"></div>
+  <div class="col m4 s12 center-align">
+    <img src="img/wait.jpg" alt="" style='height:280px;'>
+  </div>
+  <div class="col m4 s12"></div>
+</div>
+
+<h4 class='center-align black-text'>Please Wait...</h4>
+  <div class="progress">
+      <div class="indeterminate"></div>
+</div>
+</div>
 
 <main style='display:none;'>
 <!--  Parallax Section  -->
@@ -167,14 +182,6 @@ Then we reminisce this poem I made, on our 30th anniversary.<br>
 
 <!-- end paralax -->
 </main>
-<div id='progress'>
-<br><br><br>
-<h4 class='center-align'>Please Wait...</h4>
-  <div class="progress">
-
-      <div class="indeterminate"></div>
-</div>
-</div>
 
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -183,11 +190,12 @@ Then we reminisce this poem I made, on our 30th anniversary.<br>
       
   <script>
        $(document).ready(function(){
-         $('.parallax').parallax();
+       
         $('main').waitForImages(function() {
             // All descendant images have loaded, now slide up.
-            $(this).fadeIn();
-            $('.progress').hide();
+            $(this).show();
+            $('.parallax').parallax();
+            $('#progress').hide();
         });
      });
         
