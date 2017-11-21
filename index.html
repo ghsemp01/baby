@@ -13,11 +13,11 @@
   
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-
+    
   </head>
   <body class="parallax-demo">
 
-<main>
+<main style='display:none;'>
 <!--  Parallax Section  -->
   <div class="parallax-container">
     <div class="parallax"><img src="img/a3.jpg"></div>
@@ -164,16 +164,31 @@ Then we reminisce this poem I made, on our 30th anniversary.<br>
     </blockquote>
     </div>
   </div>
+
 <!-- end paralax -->
+</main>
+<div id='progress'>
+<h4 class='center-align'>Please Wait...</h4>
+  <div class="progress">
+
+      <div class="indeterminate"></div>
+</div>
+</div>
+
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-  
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="waitforimages.js"></script>
       
   <script>
        $(document).ready(function(){
-      $('.parallax').parallax();
-    });
+         $('.parallax').parallax();
+        $('main').waitForImages(function() {
+            // All descendant images have loaded, now slide up.
+            $(this).fadeIn();
+            $('.progress').hide();
+        });
+     });
         
   </script>
   </body>
